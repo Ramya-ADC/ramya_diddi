@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        body {
+            background: #ffffff;
+            background-attachment: fixed;
+            font-family: 'Lato', Arial, sans-serif;
+            
+            /* Add background image */
+            background-image: url('Assets/20240909_102148 1.png');
+
+            /* Set size and positioning */
+            background-size: cover; /* Adjusts to cover the entire page */
+            background-position: cover; /* Centers the image */
+
+            /* Optional: Fixes the background so it doesn't scroll with the content */
+            background-attachment:scroll;
+
+            /* Optional: Adds a slight color overlay (if needed) */
+            background-color: rgba(0, 0, 0, 0.5);
+            background-blend-mode:overlay;
+        }
+
+        nav {
+            background-color: #000000;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 60px;
+        }
+
+        .nav-links a {
+            color: #FBEBDA;
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: 100;
+        }
+
+        .nav-links a.active {
+            text-decoration: underline; 
+            font-weight: 300; 
+        }
+
+        .logo {
+            height: 50px;
+            width: auto;
+        }
+
+        .content {
+            padding: 25px;
+            position: relative;
+            z-index: 1;
+            min-height: 150vh;
+            overflow-x: hidden;
+        }
+
+        .left-paragraph {
+            width: 40%; /* Adjust the width as needed */
+            text-align: left;
+            font-family: 'Lato', Arial, sans-serif;
+            color: #FBEBDA;
+            float: left;
+            padding-right: 20px;
+        }
+
+
+        h1 {
+            font-family: 'Mintage', sans-serif;
+            font-size: 60px;
+            color: #FBEBDA;
+            text-align: center;
+        }
+
+        h2 {
+            font-family: 'Mintage', sans-serif;
+            font-size: 40px;
+            color: #FBEBDA;
+            text-align: left;
+        }
+
+        p {
+            font-size: 18px;
+            font-weight: 300;
+            line-height: 1.6; /* For better readability */
+        }
+
+        .flex-container {
+            display: flex; 
+            justify-content: space-between;
+            align-items: flex-start; 
+            margin: 10px; 
+        }
+
+        .button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1em;
+            width: 100%; /* Make button width full to fit form layout */
+            height: 60px;
+            border: none;
+            border-radius: 100px;
+            cursor: pointer;
+            color: #FBEBDA;
+            background-color: #32312D;
+            transition: all 1000ms;
+            font-size: 20px;
+            position: relative;
+            overflow: hidden;
+            margin-top: 20px; /* Add spacing between form and button */
+            margin-left: 5px;
+
+        }
+
+    .button-img {
+        height: 50px; /* Adjust the size of the image */
+        position:relative;
+        width: auto;
+    }
+
+    .button-img:hover {
+        height: 50px; /* Adjust the size of the image */
+        position:relative;
+        width: auto;
+    }
+
+    .button:hover {
+            color: #32312D;
+            transform: scale(1.1);
+            box-shadow: 4px 5px 17px -4px #32312D;
+    }
+
+    .button::before {
+            content: "";
+            position: absolute;
+            left: -50px;
+            top: 0;
+            width: 0;
+            height: 100%;
+            background-color: #fbebda;
+            transform: skewX(45deg);
+            z-index: -1;
+            transition: width 1000ms;
+        }
+
+        .button:hover::before {
+            width: 250%;
+        }
+
+        .wave-container {
+            width: 100%;
+            height: 100px;
+            overflow: hidden;
+        }
+        .wave {
+            width: 250%;
+            height: 100%;
+            position: relative;
+        }
+        .wave path {
+            fill: none;
+            stroke-width: 4;
+        }
+        .wave path:first-child {
+            stroke: #32312D;
+            animation: waveAnimation1 4s ease-in-out infinite alternate;
+        }
+        .wave path:nth-child(2) {
+            stroke: #ebd1b5;
+            animation: waveAnimation2 4s ease-in-out infinite alternate;
+        }
+        .wave path:nth-child(3) {
+            stroke: #32312D;
+            animation: waveAnimation3 4s ease-in-out infinite alternate;
+        }
+        @keyframes waveAnimation1 {
+            0% {
+                d: path("M0,50 Q40,30 80,40 T160,70 T240,30 T320,50 T400,10");
+            }
+            20% {
+                d: path("M0,50 Q50,15 90,50 T170,80 T250,30 T330,55 T400,25");
+            }
+            50% {
+                d: path("M0,50 Q40,60 80,20 T160,90 T240,40 T320,70 T400,40");
+            }
+            80% {
+                d: path("M0,50 Q30,30 70,50 T150,20 T230,70 T310,80 T400,30");
+            }
+            100% {
+                d: path("M0,50 Q40,30 80,40 T160,70 T240,30 T320,50 T400,10");
+            }
+        }
+        @keyframes waveAnimation2 {
+            0% {
+                d: path("M0,50 Q20,20 60,50 T120,30 T200,50 T280,40 T360,20");
+            }
+            25% {
+                d: path("M0,50 Q30,10 70,40 T150,60 T230,30 T310,50 T400,15");
+            }
+            50% {
+                d: path("M0,50 Q20,70 60,20 T120,70 T200,45 T280,50 T360,30");
+            }
+            75% {
+                d: path("M0,50 Q25,50 65,55 T125,35 T205,50 T285,40 T360,25");
+            }
+            100% {
+                d: path("M0,50 Q20,20 60,50 T120,30 T200,50 T280,40 T360,20");
+            }
+        }
+        @keyframes waveAnimation3 {
+            0% {
+                d: path("M0,50 Q10,30 40,60 T100,30 T160,50 T240,40 T320,50");
+            }
+            30% {
+                d: path("M0,50 Q20,50 50,40 T100,80 T160,50 T240,60 T320,30");
+            }
+            60% {
+                d: path("M0,50 Q15,20 45,50 T100,40 T160,70 T240,50 T320,60");
+            }
+            90% {
+                d: path("M0,50 Q5,10 30,60 T100,50 T160,40 T240,30 T320,50");
+            }
+            100% {
+                d: path("M0,50 Q10,30 40,60 T100,30 T160,50 T240,40 T320,50");
+            }
+        }
+
+        .testimonial-container {
+            width: 250%;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .testimonial-track {
+            display: flex;
+            width: 200%; /* Double the width to accommodate duplicated testimonials */
+            animation: scroll 20s linear infinite;
+        }
+
+        .testimonial-box {
+            flex: 0 0 calc(16.666% - 10px); /* One-sixth of the track width (considering duplicates) minus margins */
+            border: 1px solid #FBEBDA;
+            border-radius: 30px;
+            padding: 20px;
+            margin: 0 10px;
+            background-color: rgba(255, 255, 255, 0);
+            font-family: 'Lato', Arial, sans-serif;
+            font-weight: 100;
+            font-size: 15px;
+            color: #FBEBDA;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-100%); /* Move full width */
+            }
+        }
+
+        .testimonial-container:hover .testimonial-track {
+            animation-play-state: paused;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html"><img src="/Assets/MAIN BEIGEAsset 4@4x.png" alt="Logo" class="logo"></a>
+        <div class="nav-links">
+            <a href="MyWork.html">MY WORK</a>
+            <a href="RDCanvas.html">RD-CANVAS</a>
+            <a href="AboutMe.html" class="active">ABOUT ME</a>
+            <a href="GetInTouch.html">GET IN TOUCH</a>
+        </div>
+    </nav>
+
+    <div class="content">
+        <h1>ABOUT ME</h1>
+
+        <div class="left-paragraph">
+            <p>
+                I grew up in a middle-class family, with my mother as a professor and my father as a management consultant, both of whom are brilliant analytical thinkers. While I admired their problem-solving abilities, my creative intelligence always stood out. Since learning to hold a crayon, I've been drawing endlessly, evolving from simple scribbles to detailed sketches and applying my creativity to everyday solutions for my family.
+                <br><br>
+                My ambition is to turn this innate talent into a career. A design project with IKEA, one of my father's clients, gave me the push I needed when one of my children's wardrobe concepts was well-received. This experience solidified my passion for design.
+                <br><br>
+                In high school, I explored creative career paths, excelling in entrance exams for Fashion Design (with a national rank of 831) and Architecture. After thorough research and discussions with my parents, I chose Design as my path forward.
+                <br><br>
+                <button class="button">
+                    <img src="Assets/Group 110.png" alt="Icon" class="button-img">
+                    <img src="Assets/Group 111.png" alt="Icon" class="button-img">
+                </button>
+
+            </p> 
+            <br><br><br><br><br><br><br><br> 
+            <h2>TESTIMONIALS</h2>
+            <br><br><br>  
+            <div class="testimonial-container">
+                <div class="testimonial-track">
+                    <div class="testimonial-box">
+                        <p>"Ramya is highly dependable, insightful, punctual, does her work with dedication and accuracy, takes lead and is a good team player. We are happy with the way she deals with ambiguous situations with unclear dependencies, conflicting stakeholder priorities to achieve her assignment goals while enabling the success of the overall project."</p>
+                        <h4>~ Dr. Ann David, CMC Vellore</h4>
+                    </div>
+                    <div class="testimonial-box">
+                        <p>"It was a pleasure working with Ramya and we are looking into the possibilities of continued engagement with her beyond this internship period. I believe she will do well in her education and career and we wish her the very best."</p>
+                        <h4>~ Prof. Sujatha Srinivasan, Mech. Engg., IIT Madras</h4>
+                    </div>
+                    <div class="testimonial-box">
+                        <p>"Your daughter Ramya is amazing, Mr. Diddi. She is so talented at this first year stage that she comes up with wonderful designs. She will have a great career ahead."</p>
+                        <h4>~ Dr. Kartic V, IIT Madras</h4>
+                    </div>
+                    <!-- Duplicate testimonials for seamless loop -->
+                    <div class="testimonial-box">
+                        <p>"Ramya is highly dependable, insightful, punctual, does her work with dedication and accuracy, takes lead and is a good team player. We are happy with the way she deals with ambiguous situations with unclear dependencies, conflicting stakeholder priorities to achieve her assignment goals while enabling the success of the overall project."</p>
+                        <h4>~ Dr. Ann David, CMC Vellore</h4>
+                    </div>
+                    <div class="testimonial-box">
+                        <p>"It was a pleasure working with Ramya and we are looking into the possibilities of continued engagement with her beyond this internship period. I believe she will do well in her education and career and we wish her the very best."</p>
+                        <h4>~ Prof. Sujatha Srinivasan, Mech. Engg., IIT Madras</h4>
+                    </div>
+                    <div class="testimonial-box">
+                        <p>"Your daughter Ramya is amazing da. She is so talented at this first year stage that she comes up with wonderful designs. She will have a great career ahead."</p>
+                        <h4>~ Dr. Kartic V, IIT Madras</h4>
+                    </div>
+                </div>
+            </div>
+<br><br><br>
+    </div>
+    <div class="wave-container">
+        <svg class="wave" viewBox="0 0 400 100" preserveAspectRatio="none">
+            <path 
+                d="M0,50 Q40,30 80,40 T160,70 T240,30 T320,50 T400,10" />
+            <path 
+                d="M0,50 Q20,20 60,50 T120,30 T200,50 T280,40 T360,20" />
+            <path 
+                d="M0,50 Q10,30 40,60 T100,30 T160,50 T240,40 T320,50" />
+        </svg>
+    </div>
+    <br>
+    </div>
+</body>
+</html>
